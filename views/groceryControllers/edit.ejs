@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit Grocery Item</title>
+		<link rel="stylesheet" href="/css/styles.css" />
+		<!-- Link to your stylesheet -->
+	</head>
+	<body>
+		<%- include('./partials/_navbar.ejs') %>
+		<div class="container">
+			<h1>Edit Grocery Item</h1>
+
+			<form action="/update-grocery/<%= grocery.id %>" method="POST">
+				<!-- Form for updating the grocery item -->
+				<div class="form-group">
+					<label for="name">Item Name:</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						value="<%= grocery.name %>"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="price">Price ($):</label>
+					<input
+						type="number"
+						id="price"
+						name="price"
+						value="<%= grocery.price %>"
+						step="0.01"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="quantity">Quantity:</label>
+					<input
+						type="number"
+						id="quantity"
+						name="quantity"
+						value="<%= grocery.quantity %>"
+						required
+					/>
+				</div>
+
+				<button type="submit">Update Item</button>
+			</form>
+
+			<a href="/grocery-list">Back to Grocery List</a>
+		</div>
+	</body>
+</html>

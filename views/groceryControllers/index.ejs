@@ -1,0 +1,32 @@
+<!-- views/productController/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="/stylesheets/partials.css" /> -->
+		<title>Your Apps</title>
+	</head>
+	<!-- views/index.ejs -->
+
+	<body>
+		<%- include('./partials/_navbar.ejs') %>
+		<header>
+			<h1>Welcome to ShoppiCart</h1>
+			<p>Find the freshest groceries at great prices!</p>
+		</header>
+
+		<div class="container">
+			<% groceries.forEach(function(product) { %>
+			<div class="product">
+				<img src="<%= product.image %>" alt="<%= product.name %>" />
+				<h3><%= product.name %></h3>
+				<p class="price"><%= product.price %></p>
+				<p class="description"><%= product.description %></p>
+				<a href="#" class="button">Add to Cart</a>
+			</div>
+			<% }); %>
+		</div>
+	</body>
+</html>

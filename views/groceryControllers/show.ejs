@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/stylesheets/show.css" />
+		<title><%= grocery.name %></title>
+	</head>
+
+	<body>
+		<%- include('./partials/_navbar.ejs') %>
+		<div class="show-body">
+			<div class="show-header">
+				<h1><%= grocery.name %> - <%= grocery.category %></h1>
+				<div class="show-sidebar">
+					<div class="show-actions">
+						<!-- Edit button -->
+						<a href="/grocery-list/<%= grocery._id %>/edit">Edit Item</a>
+
+						<!-- Delete form -->
+						<form
+							action="/grocery-list/<%= grocery._id %>?_method=DELETE"
+							method="POST"
+						>
+							<button type="submit">Delete Item</button>
+						</form>
+					</div>
+					<!-- Display item price and quantity -->
+					<p>Price: $<%= grocery.price %></p>
+					<p>Quantity: <%= grocery.quantity %></p>
+				</div>
+			</div>
+
+			<!-- Display category and additional information -->
+			<div class="show-details-container">
+				<p><strong>Category:</strong> <%= grocery.category %></p>
+
+				<% if (grocery.description) { %>
+				<div class="show-description">
+					<h2>Description:</h2>
+					<p><%= grocery.description %></p>
+				</div>
+				<% } %>
+			</div>
+		</div>
+	</body>
+</html>

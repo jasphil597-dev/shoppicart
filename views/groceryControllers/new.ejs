@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Link to the CSS file -->
+		<!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+		<title>Add a New Grocery Item</title>
+	</head>
+	<body>
+		<%- include('./partials/_navbar.ejs') %>
+		<h1>Add a New Grocery Item</h1>
+
+		<div class="new-body">
+			<!-- Form for adding a new grocery item -->
+			<form action="/grocery-list" method="POST">
+				<div class="form-group">
+					<label for="name">Item Name:</label>
+					<input type="text" name="name" id="name" required />
+				</div>
+
+				<div class="form-group">
+					<label for="price">Price ($):</label>
+					<input type="number" name="price" id="price" step="0.01" required />
+				</div>
+
+				<div class="form-group">
+					<label for="quantity">Quantity:</label>
+					<input type="number" name="quantity" id="quantity" required />
+				</div>
+
+				<div class="form-group">
+					<label for="category">Category:</label>
+					<input type="text" name="category" id="category" />
+				</div>
+
+				<button type="submit">Add Item</button>
+			</form>
+		</div>
+	</body>
+</html>
